@@ -1,12 +1,12 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
+import HomePage from "./components/HomePage";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Date Night Mate Night</h1>
+        <HomePage></HomePage>
       </header>
     </div>
   );
