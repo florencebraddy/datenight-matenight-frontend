@@ -1,27 +1,22 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
-import Grid from "@material-ui/core/Grid";
+// import Grid from "@material-ui/core/Grid";
+import Container from "@material-ui/core/Container";
+import Typography from "@material-ui/core/Typography";
+import Button from "./Button";
+import SectionHeaders from "./SectionHeaders";
+import NavBar from "./NavBar";
 
 const backgroundImage =
   "https://images.unsplash.com/photo-1512187849-463fdb898f21?ixlib=rb-1.2.1&auto=format&fit=crop&w=1778&q=80";
-console.log(backgroundImage);
 
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
-    display: "flex",
-    alignItems: "center"
-  },
-  paper: {
-    padding: theme.spacing(2),
-    margin: "30px",
-    textAlign: "center",
-    color: theme.palette.text.secondary
+    display: "flex"
   },
   background: {
     backgroundImage: `url(${backgroundImage})`,
-    backgroundColor: "#7fc7d9",
     backgroundPosition: "center",
     position: "absolute",
     left: 0,
@@ -29,8 +24,12 @@ const useStyles = makeStyles(theme => ({
     top: 0,
     bottom: 0,
     backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-    zIndex: -2
+    backgroundRepeat: "no-repeat"
+  },
+  button: {
+    display: "flex",
+    justifyContent: "bottom",
+    size: "large"
   },
   container: {
     marginTop: theme.spacing(3),
@@ -47,8 +46,15 @@ export default function HomePage() {
   return (
     <div className={classes.root}>
       <div className={classes.background}>
-        <Grid container spacing={8}>
-          <Grid item xs={12}>
+        <Container className={classes.container}>
+          <NavBar></NavBar>
+          <Typography color="white" align="center" variant="h1" marked="center">
+            DATE NIGHT | MATE NIGHT
+          </Typography>
+          <Button classesName={classes.button}>Sign Up Now!</Button>
+          {/* <SectionHeaders></SectionHeaders> */}
+          {/* <Grid container spacing={8}> */}
+          {/* <Grid item xs={12}>
             <Paper className={classes.paper}>DATE NIGHT | MATE NIGHT</Paper>
           </Grid>
           <Grid item xs={6}>
@@ -69,7 +75,8 @@ export default function HomePage() {
           <Grid item xs={3}>
             <Paper className={classes.paper}>xs=3</Paper>
           </Grid>
-        </Grid>
+              </Grid> */}
+        </Container>
       </div>
     </div>
   );

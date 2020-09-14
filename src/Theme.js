@@ -1,7 +1,7 @@
 import { createMuiTheme } from "@material-ui/core/styles";
-import { green, grey, red } from "@material-ui/core/colors";
+// import { green, grey, red } from "@material-ui/core/colors";
 
-const rawTheme = createMuiTheme({
+const theme = createMuiTheme({
   palette: {
     primary: {
       light: "#e4ffff",
