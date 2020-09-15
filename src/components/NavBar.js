@@ -5,12 +5,11 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
+import Grid from "@material-ui/core/grid";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1,
-    marginBottom: "20px",
-    marginTop: "20px"
+    flexGrow: 1
   },
   menuButton: {
     marginRight: theme.spacing(10)
@@ -25,9 +24,7 @@ const useStyles = makeStyles(theme => ({
     color: "black",
     opacity: 0.9
   },
-  button: {
-    // flex
-  }
+  button: {}
 }));
 
 export default function NavBar() {
@@ -37,17 +34,19 @@ export default function NavBar() {
     <div className={classes.root}>
       <AppBar className={classes.main}>
         <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="menu"
-          >
-            <MenuIcon />
-          </IconButton>
-          <Button classesName={classes.button} color="inherit">
-            Login
-          </Button>
+          <Grid justify="space-between" container spacing={40}>
+            <IconButton
+              edge="start"
+              className={classes.menuButton}
+              color="inherit"
+              aria-label="menu"
+            >
+              <MenuIcon />
+            </IconButton>
+            <Button classesName={classes.button} color="inherit">
+              Login
+            </Button>
+          </Grid>
         </Toolbar>
       </AppBar>
     </div>

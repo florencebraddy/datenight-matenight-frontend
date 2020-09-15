@@ -14,8 +14,6 @@ const backgroundImage =
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1
-    // margin: "100px",
-    // padding: "100px"
   },
   background: {
     backgroundPosition: "center",
@@ -38,12 +36,12 @@ const useStyles = makeStyles(theme => ({
     flexDirection: "column",
     alignItems: "center"
   },
-  navbar: {
-    // color: "transparent"
-  },
   typography: {
-    color: "black",
-    display: "flex"
+    color: "white",
+    display: "block",
+    textAlign: "center",
+    position: "absolute",
+    padding: "400px"
   }
 }));
 
@@ -53,14 +51,11 @@ export default function HomePage() {
   return (
     <div className={classes.root}>
       <Container className={classes.container}>
-        <div>
-          <img classesName={classes.background} src={backgroundImage} alt="" />
-          <NavBar className={classes.navbar}></NavBar>
-          <Typography className={classes.typography} variant="h1">
-            DATE NIGHT | MATE NIGHT
-          </Typography>
-        </div>
-
+        <img classesName={classes.background} src={backgroundImage} alt="" />
+        <NavBar className={classes.navbar}></NavBar>
+        <Typography className={classes.typography} noWrap={true} variant="h1">
+          DATE NIGHT | MATE NIGHT
+        </Typography>
         <Grid item xs={6}>
           <Paper className={classes.paper}>CHEEKY SIGN UP HERE</Paper>
         </Grid>
