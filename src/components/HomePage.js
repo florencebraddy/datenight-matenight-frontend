@@ -4,7 +4,7 @@ import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import Button from "./Button";
-import SectionHeaders from "./SectionHeaders";
+import MiddleSection from "./MiddleSection";
 import NavBar from "./NavBar";
 import Paper from "@material-ui/core/paper";
 
@@ -13,7 +13,8 @@ const backgroundImage =
 
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
+    width: "100%"
   },
   background: {
     backgroundPosition: "center",
@@ -30,8 +31,6 @@ const useStyles = makeStyles(theme => ({
     size: "large"
   },
   container: {
-    // marginTop: theme.spacing(500),
-    // marginBottom: theme.spacing(14),
     display: "flex",
     flexDirection: "column",
     alignItems: "center"
@@ -41,7 +40,7 @@ const useStyles = makeStyles(theme => ({
     display: "block",
     textAlign: "center",
     position: "absolute",
-    padding: "400px"
+    padding: "350px"
   }
 }));
 
@@ -56,7 +55,9 @@ export default function HomePage() {
         <Typography className={classes.typography} noWrap={true} variant="h1">
           DATE NIGHT | MATE NIGHT
         </Typography>
-        <Grid item xs={6}>
+        <Typography className></Typography>
+        <MiddleSection></MiddleSection>
+        {/* <Grid item xs={6}>
           <Paper className={classes.paper}>CHEEKY SIGN UP HERE</Paper>
         </Grid>
         <Grid item xs={6}>
@@ -73,7 +74,7 @@ export default function HomePage() {
         </Grid>
         <Grid item xs={3}>
           <Paper className={classes.paper}>xs=3</Paper>
-        </Grid>
+        </Grid> */}
       </Container>
 
       {/* <SectionHeaders></SectionHeaders> */}

@@ -11,27 +11,17 @@ const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1
   },
-  menuButton: {
-    marginRight: theme.spacing(10)
-  },
   main: {
     backgroundColor: "transparent",
-    position: "absolute",
-    top: 0,
-    left: 0,
-    right: 0,
-    borderBottomWidth: 0,
-    color: "black",
-    opacity: 0.9
-  },
-  button: {}
+    color: "black"
+  }
 }));
 
 export default function NavBar() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} container="fluid">
       <AppBar className={classes.main}>
         <Toolbar>
           <Grid justify="space-between" container spacing={40}>
