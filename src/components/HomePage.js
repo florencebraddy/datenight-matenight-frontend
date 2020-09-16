@@ -20,19 +20,22 @@ const useStyles = makeStyles(theme => ({
     backgroundPosition: "center",
     backgroundColor: "transparent",
     position: "relative",
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
+    // left: 0,
+    // right: 0,
+    // top: 0,
+    // bottom: 0,
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     height: "100vh"
   },
   button: {
+    position: "relative",
     display: "flex",
+    height: "50px"
+    // alignItems: "center"
     // flexDirection: "row",
     // justifyContent: "center",
-    alignSelf: "center"
+    // alignSelf: "center"
   },
   typography: {
     color: "black",
@@ -52,7 +55,7 @@ export default function HomePage() {
   return (
     <div className={classes.root}>
       <NavBar className={classes.navbar}></NavBar>
-      <Grid container justify="center" spacing={5}>
+      <Grid container spacing={8}>
         <Grid className={classes.topsection} item xs>
           <Typography className={classes.typography} noWrap={true} variant="h1">
             DATE NIGHT | MATE NIGHT
