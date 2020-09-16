@@ -9,32 +9,19 @@ const useStyles = makeStyles(theme => ({
   root: {
     display: "flex"
   },
-  background: {
+
+  middlesection: {
+    backgroundImage: `url(${backgroundImage})`,
     backgroundPosition: "center",
     backgroundColor: "transparent",
     position: "relative",
-    // left: 0,
-    // right: 0,
-    // top: 0,
-    // bottom: 0,
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
     backgroundSize: "cover",
-    backgroundRepeat: "no-repeat"
-  },
-  item: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center"
-  },
-  image: {
-    // height: 55
-    position: "absolute"
-  },
-  title: {
-    // marginTop: theme.spacing.unit * 5,
-    // marginBottom: theme.spacing.unit * 5
-  },
-  beach: {
-    position: "relative"
+    backgroundRepeat: "no-repeat",
+    height: "100vh"
   }
 }));
 
@@ -43,28 +30,21 @@ export default function MiddleSection() {
 
   return (
     <div className={classes.root}>
-      <img src={backgroundImage} className={classes.background} alt="beach" />
-      <div className={classes.item}>
-        <img className={classes.image} src="" alt="" />
-        <Typography variant="h6" className={classes.title}>
-          The perfect date night
-        </Typography>
-      </div>
+      <Grid container justify="center">
+        <Grid className={classes.middlesection} item xs>
+          <Typography variant="h6" className={classes.title}>
+            The perfect date night
+          </Typography>
+          <Typography variant="h5">
+            {
+              "Are you and your spouse wondering what to do this Friday night? Do you and your friends keep talking about getting together for some fun? Can't decide what to do?"
+            }
+            {
+              "Well...you're in the right spot. We help you decide on the perfect day/night for you and your loved ones"
+            }
+          </Typography>
+        </Grid>
+      </Grid>
     </div>
   );
 }
-
-/* <Typography variant="h5">
-          {
-            "If you and your spouse of friends are struggling to thihnk of a date night idea"
-          }
-          {
-            "you're in the right spot. We help you decide on the perfect day/night to enjoy with your loved ones"
-          }
-        </Typography>
-      </div>
-      </Grid>
-      </div>
-      </Grid>
-      </Grid>
-    </div> */

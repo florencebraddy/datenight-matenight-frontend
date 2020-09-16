@@ -13,34 +13,36 @@ const backgroundImage =
 
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1,
-    width: "100%"
+    flexGrow: 1
   },
-  background: {
+  topsection: {
+    backgroundImage: `url(${backgroundImage})`,
     backgroundPosition: "center",
     backgroundColor: "transparent",
-    position: "absolute",
+    position: "relative",
     left: 0,
     right: 0,
     top: 0,
     bottom: 0,
     backgroundSize: "cover",
-    backgroundRepeat: "no-repeat"
+    backgroundRepeat: "no-repeat",
+    height: "100vh"
   },
   button: {
-    size: "large"
-  },
-  container: {
     display: "flex",
-    flexDirection: "column",
-    alignItems: "center"
+    // flexDirection: "row",
+    // justifyContent: "center",
+    alignSelf: "center"
   },
   typography: {
-    color: "white",
-    display: "block",
-    textAlign: "center",
-    position: "absolute",
-    padding: "350px"
+    color: "black",
+    display: "flex",
+    justifyContent: "center",
+    padding: "300px"
+  },
+  middlesection: {
+    display: "flex",
+    flexDirection: "column"
   }
 }));
 
@@ -49,61 +51,18 @@ export default function HomePage() {
 
   return (
     <div className={classes.root}>
-      <Container className={classes.container}>
-        <img classesName={classes.background} src={backgroundImage} alt="" />
-        <NavBar className={classes.navbar}></NavBar>
-        <Typography className={classes.typography} noWrap={true} variant="h1">
-          DATE NIGHT | MATE NIGHT
-        </Typography>
-        <Typography className></Typography>
-        <MiddleSection></MiddleSection>
-        {/* <Grid item xs={6}>
-          <Paper className={classes.paper}>CHEEKY SIGN UP HERE</Paper>
+      <NavBar className={classes.navbar}></NavBar>
+      <Grid container justify="center" spacing={5}>
+        <Grid className={classes.topsection} item xs>
+          <Typography className={classes.typography} noWrap={true} variant="h1">
+            DATE NIGHT | MATE NIGHT
+          </Typography>
+          <Button className={classes.button}>Sign Up Now!</Button>
         </Grid>
-        <Grid item xs={6}>
-          <Paper className={classes.paper}>USER REVIEWS HERE</Paper>
+        <Grid className={classes.middlesection} item xs>
+          <MiddleSection></MiddleSection>
         </Grid>
-        <Grid item xs={5}>
-          <Paper className={classes.paper}>SEARCH DATE NIGHTS</Paper>
-        </Grid>
-        <Grid item xs={3}>
-          <Paper className={classes.paper}>LOGIN</Paper>
-        </Grid>
-        <Grid item xs={3}>
-          <Paper className={classes.paper}>xs=3</Paper>
-        </Grid>
-        <Grid item xs={3}>
-          <Paper className={classes.paper}>xs=3</Paper>
-        </Grid> */}
-      </Container>
-
-      {/* <SectionHeaders></SectionHeaders> */}
-      {/* <Grid container spacing={8}> */}
-      {/* <Grid item xs={12}>
-            <Paper className={classes.paper}>DATE NIGHT | MATE NIGHT</Paper>
-          </Grid>
-          <Grid item xs={6}>
-            <Paper className={classes.paper}>CHEEKY SIGN UP HERE</Paper>
-          </Grid>
-          <Grid item xs={6}>
-            <Paper className={classes.paper}>USER REVIEWS HERE</Paper>
-          </Grid>
-          <Grid item xs={5}>
-            <Paper className={classes.paper}>SEARCH DATE NIGHTS</Paper>
-          </Grid>
-          <Grid item xs={3}>
-            <Paper className={classes.paper}>LOGIN</Paper>
-          </Grid>
-          <Grid item xs={3}>
-            <Paper className={classes.paper}>xs=3</Paper>
-          </Grid>
-          <Grid item xs={3}>
-            <Paper className={classes.paper}>xs=3</Paper>
-          </Grid>
-              </Grid> */}
-      {/* <Container>
-        <SectionHeaders></SectionHeaders>
-      </Container> */}
+      </Grid>
     </div>
   );
 }
