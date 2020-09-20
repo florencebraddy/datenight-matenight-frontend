@@ -2,13 +2,18 @@ import React from "react";
 // import "./App.css";
 import "fontsource-roboto";
 import HomePage from "./components/HomePage";
-import { withAuthenticator, AmplifySignOut } from "@aws-amplify/ui-react";
+import { withAuthenticator } from "@aws-amplify/ui-react";
+import { Router } from "@reach/router";
+import Profile from "./profile/Profile";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <HomePage></HomePage>
+        <Router>
+          <HomePage path="/"></HomePage>
+          <Profile path="/profile"></Profile>
+        </Router>
       </header>
     </div>
   );

@@ -29,7 +29,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.secondary.main
   },
   form: {
-    width: "100%", // Fix IE 11 issue.
+    width: "100%",
     marginTop: theme.spacing(3)
   },
   submit: {
@@ -52,7 +52,7 @@ function getStepContent(stepIndex, signUp, setSignUp) {
     case 0:
       return <SetUpUser signUp={signUp} setSignUp={setSignUp} />;
     case 1:
-      return <ConfirmSignUp signUpForm={signUp} setSignUpForm={setSignUp} />;
+      return <ConfirmSignUp signUp={signUp} setSignUp={setSignUp} />;
     default:
       return "Unknown stepIndex";
   }
@@ -66,7 +66,7 @@ export default function SignUp() {
     first_name: "",
     last_name: "",
     user_location: "",
-    profile_picture: "",
+    profile_picture: undefined,
     password: "",
     confirmationCode: ""
   });
@@ -101,10 +101,11 @@ export default function SignUp() {
       async function signUp() {
         const user = await Auth.signUp({
           username: signUp.username,
+          password: signUp.password,
           first_name: signUp.first_name,
           last_name: signUp.last_name,
-
-          password: signUp.password,
+          user_location: signUp.user_location,
+          profile_picture: signUp.profile_picture,
           attributes: {
             email: signUp.username
           }
@@ -127,7 +128,9 @@ export default function SignUp() {
         data: {
           username: signUp.username,
           first_name: signUp.first_name,
-          last_name: signUp.last_name
+          last_name: signUp.last_name,
+          user_location: signUp.user_location,
+          profile_picture: signUp.profile_picture
         },
         headers: { "Content-Type": "application/json" }
       });
@@ -164,7 +167,7 @@ export default function SignUp() {
         //   })
         //   .then(() => navigate("/"))
         //   .catch(err => console.log(err));
-        navigate("/");
+        // navigate("/");
       }
     } catch (error) {
       console.log(error);

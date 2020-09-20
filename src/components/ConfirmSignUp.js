@@ -35,7 +35,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.secondary.main
   },
   form: {
-    width: "100%", // Fix IE 11 issue.
+    width: "100%",
     marginTop: theme.spacing(3)
   },
   submit: {
@@ -67,10 +67,10 @@ export default function ConfirmSignUp({ signUp, setSignUp }) {
                 variant="outlined"
                 required
                 fullWidth
-                id="email"
-                label="Confirmation Code"
-                name="email"
-                autoComplete="email"
+                id="confirmationCode"
+                label="confirmationCode"
+                name="confirmationCode"
+                autoComplete="confirmationCode"
                 value={signUp.confirmationCode}
               />
             </Grid>

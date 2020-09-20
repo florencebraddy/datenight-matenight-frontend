@@ -70,7 +70,7 @@ export default function SetUpUser({ signUp, setSignUp }) {
                 required
                 fullWidth
                 id="email"
-                label="Email Address - this will be your username!"
+                label="Email Address"
                 name="email"
                 autoComplete="email"
                 value={signUp.username}
