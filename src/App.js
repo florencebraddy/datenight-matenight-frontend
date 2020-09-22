@@ -2,7 +2,6 @@ import React from "react";
 // import "./App.css";
 import "fontsource-roboto";
 import HomePage from "./components/HomePage";
-import { withAuthenticator } from "@aws-amplify/ui-react";
 import { Router } from "@reach/router";
 import Profile from "./profile/Profile";
 
@@ -19,4 +18,4 @@ function App() {
   );
 }
 
-export default withAuthenticator(App);
+export default App;

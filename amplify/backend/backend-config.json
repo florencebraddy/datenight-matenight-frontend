@@ -1,6 +1,6 @@
 {
   "auth": {
-    "datenightmatenightc88551ab": {
+    "datenight2cc82471a": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],

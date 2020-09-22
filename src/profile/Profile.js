@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useEffect, useState } from "react";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -23,6 +23,7 @@ import Chart from "./UpdateProfile";
 import ProfileAvatar from "./ProfileAvatar";
 import Card from "@material-ui/core/Card";
 import Reviews from "./ActivityReviews";
+import axios from "axios";
 
 function Copyright() {
   return (
@@ -138,6 +139,8 @@ const useStyles = makeStyles(theme => ({
 export default function Profile() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
+  // const [name, setName] = useState([]);
+
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -145,6 +148,22 @@ export default function Profile() {
     setOpen(false);
   };
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+
+  // useEffect(() => {
+  //   async function getName() {
+  //     const response = await axios.get({
+  //       method: "get",
+  //       url: "http://localhost:4000/user",
+  //       data: {
+  //         firstName: request.body.first_name
+  //       }
+  //     });
+  //     setName(response.data.results);
+  //     console.log(name);
+  //   }
+  //   getName();
+  // });
+  // console.log(name);
 
   return (
     <div className={classes.root}>

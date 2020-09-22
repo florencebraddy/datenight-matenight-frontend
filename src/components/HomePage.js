@@ -6,7 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import Button from "./Button";
 import MiddleSection from "./MiddleSection";
 import NavBar from "./NavBar";
-import Paper from "@material-ui/core/paper";
+import Card from "@material-ui/core/Card";
 
 const backgroundImage =
   "https://images.unsplash.com/photo-1512187849-463fdb898f21?ixlib=rb-1.2.1&auto=format&fit=crop&w=1778&q=80";
@@ -20,10 +20,10 @@ const useStyles = makeStyles(theme => ({
     backgroundPosition: "center",
     backgroundColor: "transparent",
     position: "relative",
-    // left: 0,
-    // right: 0,
-    // top: 0,
-    // bottom: 0,
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     height: "100vh"
@@ -31,11 +31,15 @@ const useStyles = makeStyles(theme => ({
   button: {
     position: "relative",
     display: "flex",
-    height: "50px"
-    // alignItems: "center"
-    // flexDirection: "row",
-    // justifyContent: "center",
-    // alignSelf: "center"
+    height: "50px",
+    opacity: "0.5"
+  },
+  card: {
+    display: "flex",
+    justifyContent: "center",
+    background: "transparent",
+    border: "none",
+    boxShadow: "none"
   },
   typography: {
     color: "black",
@@ -60,7 +64,9 @@ export default function HomePage() {
           <Typography className={classes.typography} noWrap={true} variant="h1">
             DATE NIGHT | MATE NIGHT
           </Typography>
-          <Button className={classes.button}>Sign Up Now!</Button>
+          <Card className={classes.card}>
+            <Button className={classes.button}>Sign Up Now!</Button>
+          </Card>
         </Grid>
         <Grid className={classes.middlesection} item xs>
           <MiddleSection></MiddleSection>

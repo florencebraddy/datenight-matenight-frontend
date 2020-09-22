@@ -98,21 +98,22 @@ export default function SignUp() {
   };
   const handleCreateUser = () => {
     try {
-      async function signUp() {
+      async function cognitoSignUp() {
+        console.log(signUp);
         const user = await Auth.signUp({
           username: signUp.username,
           password: signUp.password,
           first_name: signUp.first_name,
           last_name: signUp.last_name,
           user_location: signUp.user_location,
-          profile_picture: signUp.profile_picture,
+          // profile_picture: signUp.profile_picture,
           attributes: {
             email: signUp.username
           }
         });
         setSignUpUser(user);
       }
-      signUp();
+      cognitoSignUp();
       handleNext();
     } catch (error) {
       console.log(error);
@@ -129,8 +130,8 @@ export default function SignUp() {
           username: signUp.username,
           first_name: signUp.first_name,
           last_name: signUp.last_name,
-          user_location: signUp.user_location,
-          profile_picture: signUp.profile_picture
+          user_location: signUp.user_location
+          // profile_picture: signUp.profile_picture
         },
         headers: { "Content-Type": "application/json" }
       });
@@ -143,31 +144,7 @@ export default function SignUp() {
       // prompt(response);
       if (response === "SUCCESS") {
         uploadToSql();
-        // return await axios({
-        //   method: "post",
-        //   url: "https://localhost:4000/user",
-        //   data: {
-        //     firstname: signUpForm.firstname,
-        //     lastname: signUpForm.lastname,
-        //     username: signUpForm.username,
-        //     role: signUpForm.role
-        //   }
-        // });
-        // const myUuid = uuid();
-        // Storage.put(
-        //   `${signUpForm.username}/profilepics/${myUuid}.png`,
-        //   signUpForm.profilePic,
-        //   {
-        //     contentType: "image/png"
-        //   }
-        // )
-        //   .then(result => console.log(result))
-        //   .then(() => {
-        //     uploadToSql(myUuid); // call the db
-        //   })
-        //   .then(() => navigate("/"))
-        //   .catch(err => console.log(err));
-        // navigate("/");
+        navigate("/");
       }
     } catch (error) {
       console.log(error);

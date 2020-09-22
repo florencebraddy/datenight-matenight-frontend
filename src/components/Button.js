@@ -4,7 +4,7 @@ import Button from "@material-ui/core/Button";
 export default withStyles(theme => ({
   root: {
     borderRadius: "10px",
-    backgroundColor: "#e4ffff",
+    backgroundColor: "#D3D3D3",
     color: "black",
     padding: theme.spacing(2, 4)
   }
