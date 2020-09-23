@@ -10,6 +10,7 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import { Auth } from "aws-amplify";
 
 function Copyright() {
   return (
@@ -42,7 +43,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.secondary.main
   },
   form: {
-    width: "100%", // Fix IE 11 issue.
+    width: "100%",
     marginTop: theme.spacing(3)
   },
   submit: {
@@ -50,8 +51,28 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function LogIn() {
+export default function LogInUser() {
   const classes = useStyles();
+  const [signInUser, setSignedInUser] = React.useState({
+    username: "",
+    password: ""
+  });
+  console.log(signInUser);
+
+  const handleSignedInUser = () => {
+    try {
+      async function signInUser() {
+        const user = await Auth.signIn({
+          username: logIn.username,
+          password: logIn.password
+        });
+        setSignedInUser(user);
+      }
+      signInUser();
+    } catch (error) {
+      console.log("error signing in", error);
+    }
+  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -95,6 +116,7 @@ export default function LogIn() {
             variant="contained"
             color="primary"
             className={classes.submit}
+            onClick={handleSignedInUser}
           >
             Log In
           </Button>
