@@ -4,6 +4,7 @@ import "fontsource-roboto";
 import HomePage from "./components/HomePage";
 import { Router } from "@reach/router";
 import Profile from "./profile/Profile";
+import SearchDates from "./components/SearchDates";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Router>
           <HomePage path="/"></HomePage>
           <Profile path="/profile"></Profile>
+          <SearchDates path="/search"></SearchDates>
         </Router>
       </header>
     </div>

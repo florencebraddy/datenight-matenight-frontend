@@ -24,8 +24,6 @@ function Copyright() {
   );
 }
 
-//go back and fix camelcase etc
-
 const useStyles = makeStyles(theme => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -46,7 +44,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function LogInUser({ signIn, setSignIn }) {
+export default function SetLogInUser({ signIn, setSignIn }) {
   const classes = useStyles();
 
   return (
@@ -79,7 +77,7 @@ export default function LogInUser({ signIn, setSignIn }) {
             <Grid item xs={12}>
               <TextField
                 onChange={event =>
-                  setSignUp({ ...signIn, password: event.target.value })
+                  setSignIn({ ...signIn, password: event.target.value })
                 }
                 variant="outlined"
                 required
@@ -89,7 +87,7 @@ export default function LogInUser({ signIn, setSignIn }) {
                 type="password"
                 id="password"
                 autoComplete="current-password"
-                value={signUp.password}
+                value={signIn.password}
               />
             </Grid>
           </Grid>

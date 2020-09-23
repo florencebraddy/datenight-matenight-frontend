@@ -1,137 +1,141 @@
-import React from "react";
-import Avatar from "@material-ui/core/Avatar";
-import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import TextField from "@material-ui/core/TextField";
-import Link from "@material-ui/core/Link";
-import Grid from "@material-ui/core/Grid";
-import Box from "@material-ui/core/Box";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
-import { Auth } from "aws-amplify";
+// import React from "react";
+// import Avatar from "@material-ui/core/Avatar";
+// import Button from "@material-ui/core/Button";
+// import CssBaseline from "@material-ui/core/CssBaseline";
+// import TextField from "@material-ui/core/TextField";
+// import Link from "@material-ui/core/Link";
+// import Grid from "@material-ui/core/Grid";
+// import Box from "@material-ui/core/Box";
+// import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+// import Typography from "@material-ui/core/Typography";
+// import { makeStyles } from "@material-ui/core/styles";
+// import Container from "@material-ui/core/Container";
+// import SetLogInUser from "./LogInUser";
+// import { Auth } from "aws-amplify";
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
+// function Copyright() {
+//   return (
+//     <Typography variant="body2" color="textSecondary" align="center">
+//       {"Copyright © "}
+//       <Link color="inherit" href="https://material-ui.com/">
+//         Your Website
+//       </Link>{" "}
+//       {new Date().getFullYear()}
+//       {"."}
+//     </Typography>
+//   );
+// }
 
-const useStyles = makeStyles(theme => ({
-  paper: {
-    marginTop: theme.spacing(8),
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    position: "absolute",
-    width: 400,
-    backgroundColor: theme.palette.background.paper,
-    border: "2px solid #000",
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3)
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main
-  },
-  form: {
-    width: "100%",
-    marginTop: theme.spacing(3)
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2)
-  }
-}));
+// const useStyles = makeStyles(theme => ({
+//   paper: {
+//     marginTop: theme.spacing(8),
+//     display: "flex",
+//     flexDirection: "column",
+//     alignItems: "center",
+//     position: "absolute",
+//     width: 400,
+//     backgroundColor: theme.palette.background.paper,
+//     border: "2px solid #000",
+//     boxShadow: theme.shadows[5],
+//     padding: theme.spacing(2, 4, 3)
+//   },
+//   avatar: {
+//     margin: theme.spacing(1),
+//     backgroundColor: theme.palette.secondary.main
+//   },
+//   form: {
+//     width: "100%",
+//     marginTop: theme.spacing(3)
+//   },
+//   submit: {
+//     margin: theme.spacing(3, 0, 2)
+//   }
+// }));
 
-export default function LogInUser() {
-  const classes = useStyles();
-  const [signInUser, setSignedInUser] = React.useState({
-    username: "",
-    password: ""
-  });
-  console.log(signInUser);
+// export default function LogInUser() {
+//   const classes = useStyles();
+//   const [signIn, setSignedIn] = React.useState({
+//     username: "",
+//     password: ""
+//   });
+//   console.log(signIn);
+//   const [signInUser, setSignInUser] = React.useState(undefined);
+//   console.log("Signed In ", signInUser);
 
-  const handleSignedInUser = () => {
-    try {
-      async function signInUser() {
-        const user = await Auth.signIn({
-          username: logIn.username,
-          password: logIn.password
-        });
-        setSignedInUser(user);
-      }
-      signInUser();
-    } catch (error) {
-      console.log("error signing in", error);
-    }
-  };
+//   const handleSignedInUser = () => {
+//     try {
+//       async function signInUser() {
+//         const user = await Auth.signIn({
+//           username: signIn.username,
+//           password: signIn.password
+//         });
+//         setSignedInUser(user);
+//         console.log(user);
+//       }
+//       signInUser();
+//     } catch (error) {
+//       console.log("error signing in", error);
+//     }
+//   };
 
-  return (
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
-      <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Log In
-        </Typography>
-        <form className={classes.form} noValidate>
-          <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-              />
-            </Grid>
-          </Grid>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-            onClick={handleSignedInUser}
-          >
-            Log In
-          </Button>
-          <Grid container justify="flex-end">
-            <Grid item>
-              <Link href="#" variant="body2">
-                Don't have an account? Sign Up
-              </Link>
-            </Grid>
-          </Grid>
-        </form>
-      </div>
-      <Box mt={5}>
-        <Copyright />
-      </Box>
-    </Container>
-  );
-}
+//   return (
+//     <Container component="main" maxWidth="xs">
+//       <CssBaseline />
+//       <div className={classes.paper}>
+//         <Avatar className={classes.avatar}>
+//           <LockOutlinedIcon />
+//         </Avatar>
+//         <Typography component="h1" variant="h5">
+//           Log In
+//         </Typography>
+//         <form className={classes.form} noValidate>
+//           <Grid container spacing={2}>
+//             <Grid item xs={12}>
+//               <TextField
+//                 variant="outlined"
+//                 required
+//                 fullWidth
+//                 id="email"
+//                 label="Email Address"
+//                 name="email"
+//                 autoComplete="email"
+//               />
+//             </Grid>
+//             <Grid item xs={12}>
+//               <TextField
+//                 variant="outlined"
+//                 required
+//                 fullWidth
+//                 name="password"
+//                 label="Password"
+//                 type="password"
+//                 id="password"
+//                 autoComplete="current-password"
+//               />
+//             </Grid>
+//           </Grid>
+//           <Button
+//             type="submit"
+//             fullWidth
+//             variant="contained"
+//             color="primary"
+//             className={classes.submit}
+//             onClick={handleSignedInUser}
+//           >
+//             Log In
+//           </Button>
+//           <Grid container justify="flex-end">
+//             <Grid item>
+//               <Link href="#" variant="body2">
+//                 Don't have an account? Sign Up
+//               </Link>
+//             </Grid>
+//           </Grid>
+//         </form>
+//       </div>
+//       <Box mt={5}>
+//         <Copyright />
+//       </Box>
+//     </Container>
+//   );
+// }

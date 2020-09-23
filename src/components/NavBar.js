@@ -72,7 +72,7 @@ export default function NavBar() {
               color="inherit"
               onClick={logInOpen}
             >
-              Login
+              Log In
             </Button>
             <Modal
               open={logIn}
