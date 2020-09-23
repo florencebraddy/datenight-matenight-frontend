@@ -1,14 +1,28 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Stepper from "@material-ui/core/Stepper";
-import Step from "@material-ui/core/Step";
-import StepLabel from "@material-ui/core/StepLabel";
+import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import TextField from "@material-ui/core/TextField";
+import Link from "@material-ui/core/Link";
+import Grid from "@material-ui/core/Grid";
+import Box from "@material-ui/core/Box";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
-import LogInUser from "./LogInUser";
-import { Auth } from "aws-amplify";
-import { navigate } from "@reach/router";
-import axios from "axios";
+import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
+
+function Copyright() {
+  return (
+    <Typography variant="body2" color="textSecondary" align="center">
+      {"Copyright © "}
+      <Link color="inherit" href="https://material-ui.com/">
+        Your Website
+      </Link>{" "}
+      {new Date().getFullYear()}
+      {"."}
+    </Typography>
+  );
+}
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -28,139 +42,74 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.secondary.main
   },
   form: {
-    width: "100%",
+    width: "100%", // Fix IE 11 issue.
     marginTop: theme.spacing(3)
   },
   submit: {
     margin: theme.spacing(3, 0, 2)
-  },
-  backButton: {
-    marginRight: theme.spacing(1)
-  },
-  instructions: {
-    marginTop: theme.spacing(1),
-    marginBottom: theme.spacing(1)
   }
 }));
 
-function getSteps() {
-  return ["Create profile", "Confirm Profile"];
-}
-// function getStepContent(stepIndex, signUp, setSignUp) {
-//   switch (stepIndex) {
-//     case 0:
-//       return <SetUpUser signUp={signUp} setSignUp={setSignUp} />;
-//     case 1:
-//       return <ConfirmSignUp signUp={signUp} setSignUp={setSignUp} />;
-//     default:
-//       return "Unknown stepIndex";
-//   }
-// }
-export default function logIn() {
+export default function LogIn() {
   const classes = useStyles();
-  //   const [activeStep, setActiveStep] = React.useState(0);
-  //   const steps = getSteps();
-  const [logIn, setLogIn] = React.useState({
-    username: "",
-    password: ""
-  });
-  console.log(logIn);
 
-  const [signUpUser, setSignUpUser] = React.useState(undefined);
-  console.log("Logged In", signUpUser);
-
-  //   function renderButton() {
-  //     // if (activeStep === steps.length - 1) {
-  //       return (
-  //         <Button variant="contained" color="primary" onClick={handleConfirmUser}>
-  //           Log In
-  //         </Button>
-  //       );
-  //     } else {
-  //       return (
-  //         <Button variant="contained" color="primary" onClick={handleNext}>
-  //           Next
-  //         </Button>
-  //       );
-  //     }
-  //   }
-  const handleSignIn = () => {
-    try {
-      async function userSignIn() {
-        const user = await Auth.signIn({
-          username: signIn.username,
-          password: signIn.password
-          //   first_name: signUp.first_name,
-          //   last_name: signUp.last_name,
-          //   user_location: signUp.user_location,
-          // profile_picture: signUp.profile_picture,
-          //   attributes: {
-          //     email: signUp.username
-        });
-        setSignUpUser(user);
-      }
-      userSignIn();
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  async function handleLogIn() {
-    async function getFromSql() {
-      console.log("Get User Info");
-      return await axios({
-        method: "get",
-        url: "http://localhost:4000/user",
-        data: {
-          username: signIn.username
-          //   first_name: signUp.first_name,
-          //   last_name: signUp.last_name,
-          //   user_location: signUp.user_location
-          // profile_picture: signUp.profile_picture
-        },
-        headers: { "Content-Type": "application/json" }
-      });
-    }
-    try {
-      const response = await Auth.signIn(signIn.username, signIn.password);
-      // prompt(response);
-      if (response === "SUCCESS") {
-        getFromSql();
-        navigate("/profile");
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }
   return (
-    <div className={classes.paper}>
-      <LogInUser signIn={signIn} setSignIn={setSignUp}></LogInUser>
-      {/* <Stepper activeStep={activeStep} alternativeLabel>
-        {steps.map(label => (
-          <Step key={label}>
-            <StepLabel>{label}</StepLabel>
-          </Step>
-        ))}
-      </Stepper> */}
-      {/* <div> */}
-      {/* <div> */}
-      {/* <Typography className={classes.instructions}>
-            {/* {getStepContent(activeStep, signUp, setSignUp)}{" "} */}
-      {/* </Typography> */}
-      {/* <Button
-            disabled={activeStep === 0}
-            onClick={handleBack}
-            className={classes.backButton}
+    <Container component="main" maxWidth="xs">
+      <CssBaseline />
+      <div className={classes.paper}>
+        <Avatar className={classes.avatar}>
+          <LockOutlinedIcon />
+        </Avatar>
+        <Typography component="h1" variant="h5">
+          Log In
+        </Typography>
+        <form className={classes.form} noValidate>
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                id="email"
+                label="Email Address"
+                name="email"
+                autoComplete="email"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                name="password"
+                label="Password"
+                type="password"
+                id="password"
+                autoComplete="current-password"
+              />
+            </Grid>
+          </Grid>
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit}
           >
-            Back
+            Log In
           </Button>
-          {activeStep === steps.length - 2 ? ( */}
-      <Button variant="contained" color="primary" onClick={handleSignIn}>
-        Log In
-      </Button>
-      ) : ( renderButton() )}
-      {/* </div>
-      </div> */}
-    </div>
+          <Grid container justify="flex-end">
+            <Grid item>
+              <Link href="#" variant="body2">
+                Don't have an account? Sign Up
+              </Link>
+            </Grid>
+          </Grid>
+        </form>
+      </div>
+      <Box mt={5}>
+        <Copyright />
+      </Box>
+    </Container>
   );
 }

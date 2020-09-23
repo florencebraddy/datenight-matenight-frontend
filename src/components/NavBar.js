@@ -8,6 +8,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import Grid from "@material-ui/core/grid";
 import Modal from "@material-ui/core/Modal";
 import SignUp from "./SignUp";
+import LogIn from "./LogIn";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -69,18 +70,18 @@ export default function NavBar() {
             <Button
               classesName={classes.button}
               color="inherit"
-              // onClick={logIn}
+              onClick={logInOpen}
             >
               Login
             </Button>
-            {/* <Modal
+            <Modal
               open={logIn}
               onClose={handleClose}
               aria-labelledby="simple-modal-title"
               aria-describedby="simple-modal-description"
             >
               <LogIn />
-            </Modal> */}
+            </Modal>
             <Button
               classesName={classes.button}
               color="inherit"
