@@ -34,7 +34,7 @@ function getModalStyle() {
     transform: `translate(-${top}%, -${left}%)`
   };
 }
-export default function NavBar() {
+export default function NavBar({ setSignedInUser }) {
   const classes = useStyles();
 
   const [modalStyle] = React.useState(getModalStyle);
@@ -80,7 +80,7 @@ export default function NavBar() {
               aria-labelledby="simple-modal-title"
               aria-describedby="simple-modal-description"
             >
-              <LogIn />
+              <LogIn setSignedInUser={setSignedInUser} />
             </Modal>
             <Button
               classesName={classes.button}

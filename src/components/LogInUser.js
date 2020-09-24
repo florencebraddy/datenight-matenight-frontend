@@ -44,7 +44,11 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function SetLogInUser({ signIn, setSignIn }) {
+export default function LogInPage({
+  signInUserForm,
+  setSignInUserForm,
+  signIn
+}) {
   const classes = useStyles();
 
   return (
@@ -62,7 +66,10 @@ export default function SetLogInUser({ signIn, setSignIn }) {
             <Grid item xs={12}>
               <TextField
                 onChange={event =>
-                  setSignIn({ ...signIn, username: event.target.value })
+                  setSignInUserForm({
+                    ...signInUserForm,
+                    username: event.target.value
+                  })
                 }
                 variant="outlined"
                 required
@@ -71,13 +78,16 @@ export default function SetLogInUser({ signIn, setSignIn }) {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
-                value={signIn.username}
+                // value={signedInUser.username}
               />
             </Grid>
             <Grid item xs={12}>
               <TextField
                 onChange={event =>
-                  setSignIn({ ...signIn, password: event.target.value })
+                  setSignInUserForm({
+                    ...signInUserForm,
+                    password: event.target.value
+                  })
                 }
                 variant="outlined"
                 required
@@ -87,7 +97,7 @@ export default function SetLogInUser({ signIn, setSignIn }) {
                 type="password"
                 id="password"
                 autoComplete="current-password"
-                value={signIn.password}
+                // value={signedInUser.password}
               />
             </Grid>
           </Grid>

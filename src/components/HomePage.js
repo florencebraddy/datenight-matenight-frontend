@@ -53,12 +53,15 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function HomePage() {
+export default function HomePage({ setSignedInUser }) {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <NavBar className={classes.navbar}></NavBar>
+      <NavBar
+        className={classes.navbar}
+        setSignedInUser={setSignedInUser}
+      ></NavBar>
       <Grid container spacing={8}>
         <Grid className={classes.topsection} item xs>
           <Typography className={classes.typography} noWrap={true} variant="h1">
