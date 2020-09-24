@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    position: "absolute",
+    position: "center",
     width: 400,
     backgroundColor: theme.palette.background.paper,
     border: "2px solid #000",
@@ -26,17 +26,19 @@ const useStyles = makeStyles(theme => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main
+    backgroundColor: "black"
   },
   form: {
     width: "100%",
     marginTop: theme.spacing(3)
   },
   submit: {
-    margin: theme.spacing(3, 0, 2)
+    margin: theme.spacing(3, 0, 2),
+    backgroundColor: "black"
   },
   backButton: {
-    marginRight: theme.spacing(1)
+    marginRight: theme.spacing(1),
+    backgroundColor: "black"
   },
   instructions: {
     marginTop: theme.spacing(1),
@@ -78,13 +80,23 @@ export default function SignUp() {
   function renderButton() {
     if (activeStep === steps.length - 1) {
       return (
-        <Button variant="contained" color="primary" onClick={handleConfirmUser}>
+        <Button
+          variant="contained"
+          color="primary"
+          className={classes.submit}
+          onClick={handleConfirmUser}
+        >
           Confirm
         </Button>
       );
     } else {
       return (
-        <Button variant="contained" color="primary" onClick={handleNext}>
+        <Button
+          variant="contained"
+          color="primary"
+          className={classes.submit}
+          onClick={handleNext}
+        >
           Next
         </Button>
       );
@@ -176,6 +188,7 @@ export default function SignUp() {
               variant="contained"
               color="primary"
               onClick={handleCreateUser}
+              className={classes.submit}
             >
               Create User
             </Button>
