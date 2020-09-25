@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
     bottom: 0,
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
-    height: "100vh"
+    height: "100%"
   },
   button: {
     position: "relative",

@@ -9,7 +9,6 @@ const useStyles = makeStyles(theme => ({
   root: {
     display: "flex"
   },
-
   middleSection: {
     backgroundImage: `url(${backgroundImage})`,
     backgroundPosition: "center",
@@ -21,24 +20,28 @@ const useStyles = makeStyles(theme => ({
     bottom: 0,
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
-    height: "100vh"
+    height: "100%",
+    display: "flex",
+    flexDirection: "row"
+  },
+  left: {
+    flex: "1"
   },
   leftTitle: {
-    display: "flex",
     justifyContent: "center",
     alignSelf: "center",
     padding: "10px",
     margin: "100px"
   },
   leftInformation: {
-    display: "flex",
+    // display: "flex",
     justifyContent: "center",
     alignSelf: "center",
     padding: "10px",
     margin: "100px"
   },
   middle: {
-    display: "flex",
+    flex: "1",
     justifyContent: "center",
     alignSelf: "center",
     padding: "10px"
@@ -52,18 +55,18 @@ const useStyles = makeStyles(theme => ({
     margin: "100px"
   },
   right: {
-    display: "flex",
+    flex: "1",
     justifyContent: "center",
     alignSelf: "center",
     padding: "10px",
     margin: "100px"
   },
   rightInformation: {
-    display: "flex",
+    // display: "flex",
     justifyContent: "center",
-    alignSelf: "center",
-    padding: "10px",
-    margin: "100px"
+    alignSelf: "center"
+    // padding: "10px",
+    // margin: "100px"
   }
 }));
 
@@ -79,7 +82,6 @@ export default function MiddleSection() {
         container
         spacing={8}
       >
-        >
         <Grid item sm className={classes.leftSection}>
           <Card className={classes.left}>
             <Typography variant="h6" className={classes.leftTitle}>

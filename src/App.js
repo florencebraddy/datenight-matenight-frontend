@@ -28,17 +28,4 @@ function App() {
   return <PrivateRoutes signedInUser={signedInUser} />;
 }
 
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <Router>
-//           <HomePage path="/" setSignedInUser={setSignedInUser}></HomePage>
-//           <Profile path="/profile"></Profile>
-//           <SearchDates path="/search"></SearchDates>
-//         </Router>
-//       </header>
-//     </div>
-//   );
-// }
-
 export default App;
