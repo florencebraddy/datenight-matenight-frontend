@@ -25,20 +25,22 @@ const useStyles = makeStyles(theme => ({
     flexDirection: "row"
   },
   left: {
-    flex: "1"
+    flex: "1",
+    // backgroundColor: "0.5"
+    backgroundColor: "transparent"
   },
   leftTitle: {
     justifyContent: "center",
     alignSelf: "center",
     padding: "10px",
-    margin: "100px"
+    margin: "70px"
   },
   leftInformation: {
     // display: "flex",
     justifyContent: "center",
     alignSelf: "center",
     padding: "10px",
-    margin: "100px"
+    margin: "60px"
   },
   middle: {
     flex: "1",

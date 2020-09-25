@@ -28,6 +28,10 @@ const useStyles = makeStyles(theme => ({
     backgroundRepeat: "no-repeat",
     height: "100%"
   },
+  navbar: {
+    //gotta figure this one out
+    // position: "fixed"
+  },
   button: {
     position: "relative",
     display: "flex",
