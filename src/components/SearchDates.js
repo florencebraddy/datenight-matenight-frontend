@@ -8,12 +8,12 @@ import DateCards from "./DateCards";
 function SearchDates() {
   const [dates, setDates] = useState([]);
   const [toggle, setToggle] = useState(true);
-  const [query, setQuery] = useState([]);
+  const [query, setQuery] = useState("dates");
 
   useEffect(() => {
     async function getData() {
       const response = await axios.get(
-        `https://itunes.apple.com/search?term=${query}`
+        `http://localhost:4000/search/activities?name${query}`
       );
       setDates(response.data.results);
       console.log(dates);
@@ -31,11 +31,12 @@ function SearchDates() {
         />
 
         <div>
-          {dates.map(el => (
-            <>
-              <DateCards key={el.trackId} el={el}></DateCards>
-            </>
-          ))}
+          {dates &&
+            dates.map(el => (
+              <>
+                <DateCards key={el.name} el={el}></DateCards>
+              </>
+            ))}
         </div>
         <br />
       </header>

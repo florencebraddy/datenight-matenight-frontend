@@ -19,23 +19,29 @@ const useStyles = makeStyles({
   }
 });
 
-export default function DateCards({ el, toggle, setToggle }) {
+export default function DateCards({ el }) {
   const classes = useStyles();
 
   return (
     <Card className={classes.root}>
       <CardActionArea>
-        <CardMedia
-          className={classes.media}
+        {/* <CardMedia
+          className={classes.name}
           image={el.artworkUrl100}
           title="album-image"
-        />
+        /> */}
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            {el.trackName}
+            {el.name}
           </Typography>
           <Typography variant="body2" color="textSecondary">
-            {el.collectionName}
+            {el.description}
+          </Typography>
+          <Typography variant="body2" color="textSecondary">
+            {el.activity_location}
+          </Typography>
+          <Typography variant="body2" color="textSecondary">
+            {el.price}
           </Typography>
         </CardContent>
       </CardActionArea>

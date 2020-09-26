@@ -11,10 +11,12 @@ const SearchDatesNav = ({ toggle, setToggle, setQuery }) => {
   return (
     <AppBar position="static">
       <Toolbar>
-        <IconButton edge="start" color="inherit" aria-label="menu">
-          <MenuIcon />
-        </IconButton>
-        <Typography variant="h6">Songs</Typography>
+        {/* <IconButton edge="start" color="inherit" aria-label="menu"> */}
+        {/* <MenuIcon /> */}
+        {/* </IconButton> */}
+        <Typography variant="h6" align="center">
+          Dates
+        </Typography>
         <Input onChange={event => setQuery(event.target.value)}></Input>
         <Button onClick={() => setToggle(!toggle)} color="inherit">
           Search
