@@ -1,16 +1,35 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Grid, Typography, Card } from "@material-ui/core";
+import { Grid, Typography, Card, Container } from "@material-ui/core";
 
 const backgroundImage =
   "https://images.unsplash.com/photo-1476673160081-cf065607f449?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    display: "flex"
+    // display: "flex",
+    backgroundImage: `url(${backgroundImage})`,
+    backgroundPosition: "center",
+    backgroundColor: "transparent",
+    position: "absolute",
+    // left: 0,
+    // right: 0,
+    // top: 0,
+    // bottom: 0,
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    height: "100%",
+    width: "100%"
+  },
+  container: {
+    // width: "100%",
+    // paddingRight: "15px",
+    // paddingLeft: "15px",
+    // marginRight: "auto",
+    // marginLeft: "auto"
   },
   middleSection: {
-    backgroundImage: `url(${backgroundImage})`,
+    // backgroundImage: `url(${backgroundImage})`,
     backgroundPosition: "center",
     backgroundColor: "transparent",
     position: "relative",
@@ -46,7 +65,8 @@ const useStyles = makeStyles(theme => ({
     flex: "1",
     justifyContent: "center",
     alignSelf: "center",
-    padding: "10px"
+    padding: "10px",
+    backgroundColor: "transparent"
     // margin: "100px"
   },
   middleInformation: {
@@ -61,7 +81,8 @@ const useStyles = makeStyles(theme => ({
     justifyContent: "center",
     alignSelf: "center",
     padding: "10px",
-    margin: "100px"
+    margin: "100px",
+    backgroundColor: "transparent"
   },
   rightInformation: {
     // display: "flex",
@@ -77,6 +98,7 @@ export default function MiddleSection() {
 
   return (
     <div className={classes.root}>
+      {/* <Container className={classes.container} maxWidth="lg"> */}
       <Grid
         container
         className={classes.middleSection}
@@ -106,12 +128,12 @@ export default function MiddleSection() {
             </Typography>
           </Card>
         </Grid>
-        <Grid className={classes.centerSection} item sm>
-          <Card className={classes.center}>
+        <Grid className={classes.middleSection} item sm>
+          <Card className={classes.middle}>
             <Typography>Discounts for Members</Typography>
             <Typography
               variant="h5"
-              className={classes.centerInformation}
+              className={classes.middleInformation}
               noWrap={false}
             >
               {
@@ -137,6 +159,7 @@ export default function MiddleSection() {
           </Card>
         </Grid>
       </Grid>
+      {/* </Container> */}
     </div>
   );
 }

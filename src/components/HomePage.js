@@ -31,6 +31,7 @@ const useStyles = makeStyles(theme => ({
   navbar: {
     //gotta figure this one out
     // position: "fixed"
+    sticky: "top"
   },
   button: {
     position: "relative",
