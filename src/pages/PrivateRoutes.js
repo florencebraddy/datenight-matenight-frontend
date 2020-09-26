@@ -9,7 +9,7 @@ const PrivateRoutes = ({ signOut, signedInUser }) => {
   return (
     <Router>
       <HomePage path="/" signOut={signOut} />
-      <SearchDates path="/search"></SearchDates>
+      <SearchDates path="/search/activities"></SearchDates>
       <Profile path="/profile"></Profile>
       {/* <NotFound default /> */}
     </Router>

@@ -9,7 +9,7 @@ const PublicRoutes = ({ setSignedInUser }) => {
     <Router>
       <HomePage path="/" setSignedInUser={setSignedInUser}></HomePage>
       {/* <Profile path="/profile"></Profile> */}
-      <SearchDates path="/search"></SearchDates>
+      <SearchDates path="/search/activities"></SearchDates>
     </Router>
   );
 };

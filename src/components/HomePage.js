@@ -26,12 +26,11 @@ const useStyles = makeStyles(theme => ({
     bottom: 0,
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
-    height: "100%"
+    minHeight: "100%"
   },
   navbar: {
     //gotta figure this one out
     // position: "fixed"
-    sticky: "top"
   },
   button: {
     position: "relative",

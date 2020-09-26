@@ -11,12 +11,10 @@ import SignUp from "./SignUp";
 import LogIn from "./LogIn";
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1
-  },
   main: {
     backgroundColor: "transparent",
     color: "black"
+    // position: "fixed"
   }
 }));
 
@@ -55,51 +53,51 @@ export default function NavBar({ setSignedInUser }) {
   };
 
   return (
-    <div className={classes.root} container="fluid">
-      <AppBar className={classes.main}>
-        <Toolbar>
-          <Grid justify="space-between" container spacing={40}>
-            <IconButton
-              edge="start"
-              className={classes.menuButton}
-              color="inherit"
-              aria-label="menu"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Button
-              classesName={classes.button}
-              color="inherit"
-              onClick={logInOpen}
-            >
-              Log In
-            </Button>
-            <Modal
-              open={logIn}
-              onClose={handleClose}
-              aria-labelledby="simple-modal-title"
-              aria-describedby="simple-modal-description"
-            >
-              <LogIn setSignedInUser={setSignedInUser} />
-            </Modal>
-            <Button
-              classesName={classes.button}
-              color="inherit"
-              onClick={signUpOpen}
-            >
-              Sign Up
-            </Button>
-            <Modal
-              open={signUp}
-              onClose={handleClose}
-              aria-labelledby="simple-modal-title"
-              aria-describedby="simple-modal-description"
-            >
-              <SignUp />
-            </Modal>
-          </Grid>
-        </Toolbar>
-      </AppBar>
-    </div>
+    // <div className={classes.root}>
+    <AppBar className={classes.main}>
+      <Toolbar>
+        <Grid justify="space-between" container spacing={40}>
+          <IconButton
+            edge="start"
+            className={classes.menuButton}
+            color="inherit"
+            aria-label="menu"
+          >
+            <MenuIcon />
+          </IconButton>
+          <Button
+            classesName={classes.button}
+            color="inherit"
+            onClick={logInOpen}
+          >
+            Log In
+          </Button>
+          <Modal
+            open={logIn}
+            onClose={handleClose}
+            aria-labelledby="simple-modal-title"
+            aria-describedby="simple-modal-description"
+          >
+            <LogIn setSignedInUser={setSignedInUser} />
+          </Modal>
+          <Button
+            classesName={classes.button}
+            color="inherit"
+            onClick={signUpOpen}
+          >
+            Sign Up
+          </Button>
+          <Modal
+            open={signUp}
+            onClose={handleClose}
+            aria-labelledby="simple-modal-title"
+            aria-describedby="simple-modal-description"
+          >
+            <SignUp />
+          </Modal>
+        </Grid>
+      </Toolbar>
+    </AppBar>
+    // </div>
   );
 }
