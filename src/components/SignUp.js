@@ -7,10 +7,11 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import SetUpUser from "./SetUpUser";
 import ConfirmSignUp from "./ConfirmSignUp";
-import { Auth } from "aws-amplify";
+import { Auth, Storage } from "aws-amplify";
 import { navigate } from "@reach/router";
 import axios from "axios";
 import ProfilePic from "./ProfilePic";
+import { v4 as uuid } from "uuid";
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -122,7 +123,6 @@ export default function SignUp() {
           first_name: signUp.first_name,
           last_name: signUp.last_name,
           user_location: signUp.user_location,
-          // profile_picture: signUp.profile_picture,
           attributes: {
             email: signUp.username
           }
@@ -137,7 +137,7 @@ export default function SignUp() {
   };
 
   async function handleConfirmUser() {
-    async function uploadToSql() {
+    async function uploadToSql(uuid) {
       console.log("upload to mysql");
       return await axios({
         method: "post",
@@ -146,8 +146,8 @@ export default function SignUp() {
           username: signUp.username,
           first_name: signUp.first_name,
           last_name: signUp.last_name,
-          user_location: signUp.user_location
-          // profile_picture: signUp.profile_picture
+          user_location: signUp.user_location,
+          profile_picture: uuid
         },
         headers: { "Content-Type": "application/json" }
       });
@@ -157,10 +157,19 @@ export default function SignUp() {
         signUp.username,
         signUp.confirmationCode
       );
-      prompt(response);
       if (response === "SUCCESS") {
-        uploadToSql();
-        navigate("/profile");
+        const userUuid = uuid();
+        Storage.put(
+          `${signUp.username}/profilepictures/${userUuid}.png`,
+          signUp.profile_picture,
+          {
+            contentType: "image/png"
+          }
+        )
+          .then(result => console.log(result))
+          .then(() => uploadToSql(userUuid))
+          .then(() => navigate("/profile"))
+          .catch(err => console.log(err));
       }
     } catch (error) {
       console.log(error);

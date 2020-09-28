@@ -134,22 +134,6 @@ export default function SetUpUser({ signUp, setSignUp }) {
                 value={signUp.user_location}
               />
             </Grid>
-            <Grid item xs={12}>
-              <TextField
-                onChange={event =>
-                  setSignUp({ ...signUp, profile_picture: event.target.value })
-                }
-                variant="outlined"
-                required
-                fullWidth
-                name="Profile Picture"
-                label="Profile Picture"
-                type="Profile Picture"
-                id="Profile Picture"
-                autoComplete="Profile Picture"
-                value={signUp.profile_picture}
-              />
-            </Grid>
           </Grid>
           <Grid container justify="flex-end">
             <Grid item>

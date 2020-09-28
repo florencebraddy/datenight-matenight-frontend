@@ -44,11 +44,11 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function ProfilePic({ signUpForm, setSignUpForm }) {
+export default function ProfilePic({ signUp, setSignUp }) {
   const classes = useStyles();
 
   function onChange(e) {
-    setSignUpForm({ ...signUpForm, profilepic: e.target.files[0] });
+    setSignUp({ ...signUp, profile_picture: e.target.files[0] });
   }
 
   return (
