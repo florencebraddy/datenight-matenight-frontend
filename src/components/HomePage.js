@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
     top: "0",
     left: "0",
     minWidth: "100%",
-    // minHeight: "100%",
+    minHeight: "100%",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover"
 
@@ -64,16 +64,23 @@ const useStyles = makeStyles(theme => ({
   },
   info: {
     display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    justifySelf: "center",
+    justifyContent: "center space-between",
+    alignContent: "center",
+    flexFlow: "column wrap",
     backgroundColor: "transparent",
-    width: "400px",
-    height: "300px",
-    position: "relative"
+    position: "absolute"
+  },
+  infotitle: {
+    fontSize: "30px",
+    padding: "20px",
+    margin: "20px"
   },
   infotext: {
-    color: "white"
+    color: "white",
+    fontSize: "20px",
+    alignContent: "center",
+    padding: "20px",
+    margin: "20px"
   }
 }));
 
@@ -92,11 +99,13 @@ export default function HomePage({ setSignedInUser }) {
             DATE NIGHT | MATE NIGHT
           </Typography>
           <Card className={classes.info}>
-            <Typography variant="subtitle1">The Perfect Date Night</Typography>
+            <Typography className={classes.infotitle} variant="subtitle1">
+              The Perfect Date Night
+            </Typography>
             <Typography
               variant="body1"
               className={classes.infotext}
-              noWrap={false}
+              noWrap={true}
             >
               {
                 "Are you and your spouse wondering what to do this Friday night? Do you and your friends keep talking about getting together for some fun?"
@@ -113,10 +122,11 @@ export default function HomePage({ setSignedInUser }) {
             <Button className={classes.button}>Search Dates</Button>
           </Card>
         </Grid>
-        {/* <Grid className={classes.middlesection} item xs> */}
-        {/* <MiddleSection></MiddleSection> */}
-        {/* </Grid> */}
       </Grid>
+      {/* <Grid className={classes.middlesection} item xs> */}
+      {/* <MiddleSection></MiddleSection> */}
+      {/* </Grid> */}
+      {/* </Grid> */}
     </div>
   );
 }

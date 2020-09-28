@@ -50,13 +50,13 @@ export default function LogInUser({ setSignedInUser }) {
 
   console.log("Signed In ");
 
-  //   async function signOut() {
-  //     try {
-  //       Auth.signOut({ global: true }).then(() => setSignedInUser(undefined));
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
+  // async function signOut() {
+  //   try {
+  //     Auth.signOut({ global: true }).then(() => setSignedInUser(undefined));
+  //   } catch (error) {
+  //     console.log(error);
   //   }
+  // }
 
   async function signIn() {
     try {
@@ -65,7 +65,6 @@ export default function LogInUser({ setSignedInUser }) {
         signInUserForm.password
       );
       setSignedInUser(user);
-      navigate("/profile");
       console.log(await Auth.currentAuthenticatedUser());
     } catch (error) {
       console.log("There was an error signing in. Please try again!", error);
