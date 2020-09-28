@@ -22,8 +22,8 @@ function SearchDates() {
     getData();
   }, [toggle]);
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className="search">
+      <header className="Search">
         <SearchDatesNav
           toggle={toggle}
           setToggle={setToggle}

@@ -1,5 +1,5 @@
 import React from "react";
-// import "./App.css";
+import "./App.css";
 import "fontsource-roboto";
 import HomePage from "./components/HomePage";
 import { Router } from "@reach/router";

@@ -68,19 +68,20 @@ const useStyles = makeStyles(theme => ({
     alignContent: "center",
     flexFlow: "column wrap",
     backgroundColor: "transparent",
-    position: "absolute"
+    position: "absolute",
+    fontFamily: "Special Elite"
   },
   infotitle: {
-    fontSize: "30px",
-    padding: "20px",
-    margin: "20px"
+    fontSize: "40px",
+    margin: "10px",
+    fontFamily: "Neucha"
   },
   infotext: {
     color: "white",
     fontSize: "20px",
     alignContent: "center",
-    padding: "20px",
-    margin: "20px"
+    margin: "10px",
+    fontFamily: "Neucha"
   }
 }));
 
@@ -107,20 +108,22 @@ export default function HomePage({ setSignedInUser }) {
               className={classes.infotext}
               noWrap={true}
             >
+              {"Are you and your spouse wondering what to do this weekend?"}
+              <br />
               {
-                "Are you and your spouse wondering what to do this Friday night? Do you and your friends keep talking about getting together for some fun?"
+                "Do you and your friends keep talking about getting together to hang?"
               }
               <br />
-              {"Can't decide what to do?"}
+              {"Can't figure out what to do?"}
               <br />
               {
-                "Well...you're in the right spot. We help you decide on the perfect day/night for you and your loved ones!"
+                "Well...you're in the right spot. We help you decide on the perfect date for you and your loved ones!"
               }
             </Typography>
           </Card>
-          <Card className={classes.buttoncard}>
+          {/* <Card className={classes.buttoncard}>
             <Button className={classes.button}>Search Dates</Button>
-          </Card>
+          </Card> */}
         </Grid>
       </Grid>
       {/* <Grid className={classes.middlesection} item xs> */}
