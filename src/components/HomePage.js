@@ -17,28 +17,35 @@ const useStyles = makeStyles(theme => ({
   },
   topsection: {
     backgroundImage: `url(${backgroundImage})`,
-    backgroundPosition: "center",
-    backgroundColor: "transparent",
-    position: "relative",
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
-    backgroundSize: "cover",
+    position: "absolute",
+    top: "0",
+    left: "0",
+    minWidth: "100%",
+    // minHeight: "100%",
     backgroundRepeat: "no-repeat",
-    minHeight: "100%"
+    backgroundSize: "cover"
+
+    // backgroundPosition: "center",
+    // backgroundColor: "transparent",
+    // position: "relative",
+    // left: 0,
+    // right: 0,
+    // top: 0,
+    // bottom: 0,
+    // backgroundSize: "cover",
+    // backgroundRepeat: "no-repeat"
+    // minHeight: "100%"
   },
   navbar: {
-    //gotta figure this one out
-    // position: "fixed"
+    position: "fixed"
   },
   button: {
     position: "relative",
     display: "flex",
     height: "50px",
-    opacity: "0.5"
+    opacity: "0.9"
   },
-  card: {
+  buttoncard: {
     display: "flex",
     justifyContent: "center",
     background: "transparent",
@@ -49,11 +56,24 @@ const useStyles = makeStyles(theme => ({
     color: "black",
     display: "flex",
     justifyContent: "center",
-    padding: "300px"
+    padding: "250px"
   },
   middlesection: {
     display: "flex",
     flexDirection: "column"
+  },
+  info: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    justifySelf: "center",
+    backgroundColor: "transparent",
+    width: "400px",
+    height: "300px",
+    position: "relative"
+  },
+  infotext: {
+    color: "white"
   }
 }));
 
@@ -71,13 +91,31 @@ export default function HomePage({ setSignedInUser }) {
           <Typography className={classes.typography} noWrap={true} variant="h1">
             DATE NIGHT | MATE NIGHT
           </Typography>
-          <Card className={classes.card}>
-            <Button className={classes.button}>Sign Up Now!</Button>
+          <Card className={classes.info}>
+            <Typography variant="subtitle1">The Perfect Date Night</Typography>
+            <Typography
+              variant="body1"
+              className={classes.infotext}
+              noWrap={false}
+            >
+              {
+                "Are you and your spouse wondering what to do this Friday night? Do you and your friends keep talking about getting together for some fun?"
+              }
+              <br />
+              {"Can't decide what to do?"}
+              <br />
+              {
+                "Well...you're in the right spot. We help you decide on the perfect day/night for you and your loved ones!"
+              }
+            </Typography>
+          </Card>
+          <Card className={classes.buttoncard}>
+            <Button className={classes.button}>Search Dates</Button>
           </Card>
         </Grid>
-        <Grid className={classes.middlesection} item xs>
-          <MiddleSection></MiddleSection>
-        </Grid>
+        {/* <Grid className={classes.middlesection} item xs> */}
+        {/* <MiddleSection></MiddleSection> */}
+        {/* </Grid> */}
       </Grid>
     </div>
   );

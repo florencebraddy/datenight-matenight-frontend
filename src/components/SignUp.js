@@ -10,6 +10,7 @@ import ConfirmSignUp from "./ConfirmSignUp";
 import { Auth } from "aws-amplify";
 import { navigate } from "@reach/router";
 import axios from "axios";
+import ProfilePic from "./ProfilePic";
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -17,13 +18,14 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    position: "center",
+    position: "absolute",
     width: 400,
     backgroundColor: theme.palette.background.paper,
     border: "2px solid #000",
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3)
   },
+
   avatar: {
     margin: theme.spacing(1),
     backgroundColor: "black"
@@ -38,7 +40,7 @@ const useStyles = makeStyles(theme => ({
   },
   backButton: {
     marginRight: theme.spacing(1),
-    backgroundColor: "black"
+    backgroundColor: "white"
   },
   instructions: {
     marginTop: theme.spacing(1),
@@ -47,13 +49,15 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function getSteps() {
-  return ["Create profile", "Confirm Profile"];
+  return ["Create profile", "Upload Profile Pic", "Confirm Profile"];
 }
 function getStepContent(stepIndex, signUp, setSignUp) {
   switch (stepIndex) {
     case 0:
       return <SetUpUser signUp={signUp} setSignUp={setSignUp} />;
     case 1:
+      return <ProfilePic signUp={signUp} setSignUp={setSignUp}></ProfilePic>;
+    case 2:
       return <ConfirmSignUp signUp={signUp} setSignUp={setSignUp} />;
     default:
       return "Unknown stepIndex";
@@ -153,10 +157,10 @@ export default function SignUp() {
         signUp.username,
         signUp.confirmationCode
       );
-      // prompt(response);
+      prompt(response);
       if (response === "SUCCESS") {
         uploadToSql();
-        navigate("/");
+        navigate("/profile");
       }
     } catch (error) {
       console.log(error);
@@ -174,7 +178,7 @@ export default function SignUp() {
       <div>
         <div>
           <Typography className={classes.instructions}>
-            {getStepContent(activeStep, signUp, setSignUp)}{" "}
+            {getStepContent(activeStep, signUp, setSignUp)}
           </Typography>
           <Button
             disabled={activeStep === 0}

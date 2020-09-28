@@ -9,7 +9,12 @@ const PublicRoutes = ({ setSignedInUser }) => {
     <Router>
       <HomePage path="/" setSignedInUser={setSignedInUser}></HomePage>
       {/* <Profile path="/profile"></Profile> */}
-      <SearchDates path="/search/activities"></SearchDates>
+      <SearchDates
+        path="/search/activities"
+        // toggle={toggle}
+        // setToggle={setToggle}
+        // setQuery={setQuery}
+      ></SearchDates>
     </Router>
   );
 };

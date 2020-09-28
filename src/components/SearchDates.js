@@ -8,19 +8,19 @@ import DateCards from "./DateCards";
 function SearchDates() {
   const [dates, setDates] = useState([]);
   const [toggle, setToggle] = useState(true);
-  const [query, setQuery] = useState("dates");
+  const [query, setQuery] = useState([]);
 
   useEffect(() => {
     async function getData() {
       const response = await axios.get(
-        `http://localhost:4000/search/activities?name${query}`
+        `http://localhost:4000/search/activity?name=${query}`
       );
+      console.log(response);
       setDates(response.data.results);
-      console.log(dates);
+      // console.log(response.data);
     }
     getData();
   }, [toggle]);
-  console.log(dates);
   return (
     <div className="App">
       <header className="App-header">

@@ -10,22 +10,10 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import { navigate } from "@reach/router";
 
 import { Auth } from "aws-amplify";
 
-//Don't need this function right now
-// function Copyright() {
-//   return (
-//     <Typography variant="body2" color="textSecondary" align="center">
-//       {"Copyright © "}
-//       <Link color="inherit" href="https://material-ui.com/">
-//         Your Website
-//       </Link>{" "}
-//       {new Date().getFullYear()}
-//       {"."}
-//     </Typography>
-//   );
-// }
 const useStyles = makeStyles(theme => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -77,6 +65,7 @@ export default function LogInUser({ setSignedInUser }) {
         signInUserForm.password
       );
       setSignedInUser(user);
+      navigate("/profile");
       console.log(await Auth.currentAuthenticatedUser());
     } catch (error) {
       console.log("There was an error signing in. Please try again!", error);
@@ -89,20 +78,6 @@ export default function LogInUser({ setSignedInUser }) {
       setSignedInUser(user);
     })();
   }, []);
-
-  //   if (!signedInUser) {
-  //     return (
-  //       <div className="App">
-  //         <PublicRoutes
-  //           signIn={signIn}
-  //           setSignInForm={setSignInForm}
-  //           signInForm={signInForm}
-  //         />
-  //       </div>
-  //     );
-  //   }
-  //   return <PrivateRoutes signOut={signOut} />;
-  // }
 
   return (
     <Container component="main" maxWidth="xs">

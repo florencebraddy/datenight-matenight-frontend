@@ -1,6 +1,6 @@
 {
     "identityPoolName": "datenight2cc82471a_identitypool_cc82471a",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "datenicc82471a",
     "userPoolName": "datenight2cc82471a_userpool_cc82471a",
     "autoVerifiedAttributes": [

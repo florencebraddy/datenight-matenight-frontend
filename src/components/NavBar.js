@@ -14,7 +14,6 @@ const useStyles = makeStyles(theme => ({
   main: {
     backgroundColor: "transparent",
     color: "black"
-    // position: "fixed"
   }
 }));
 
@@ -53,10 +52,9 @@ export default function NavBar({ setSignedInUser }) {
   };
 
   return (
-    // <div className={classes.root}>
     <AppBar className={classes.main}>
       <Toolbar>
-        <Grid justify="space-between" container spacing={40}>
+        <Grid justify="space-between" container spacing={30}>
           <IconButton
             edge="start"
             className={classes.menuButton}
@@ -65,39 +63,40 @@ export default function NavBar({ setSignedInUser }) {
           >
             <MenuIcon />
           </IconButton>
-          <Button
-            classesName={classes.button}
-            color="inherit"
-            onClick={logInOpen}
-          >
-            Log In
-          </Button>
-          <Modal
-            open={logIn}
-            onClose={handleClose}
-            aria-labelledby="simple-modal-title"
-            aria-describedby="simple-modal-description"
-          >
-            <LogIn setSignedInUser={setSignedInUser} />
-          </Modal>
-          <Button
-            classesName={classes.button}
-            color="inherit"
-            onClick={signUpOpen}
-          >
-            Sign Up
-          </Button>
-          <Modal
-            open={signUp}
-            onClose={handleClose}
-            aria-labelledby="simple-modal-title"
-            aria-describedby="simple-modal-description"
-          >
-            <SignUp />
-          </Modal>
+          <Grid>
+            <Button
+              classesName={classes.button}
+              color="inherit"
+              onClick={logInOpen}
+            >
+              Log In
+            </Button>
+            <Modal
+              open={logIn}
+              onClose={handleClose}
+              aria-labelledby="simple-modal-title"
+              aria-describedby="simple-modal-description"
+            >
+              <LogIn setSignedInUser={setSignedInUser} />
+            </Modal>
+            <Button
+              classesName={classes.button}
+              color="inherit"
+              onClick={signUpOpen}
+            >
+              Sign Up
+            </Button>
+            <Modal
+              open={signUp}
+              onClose={handleClose}
+              aria-labelledby="simple-modal-title"
+              aria-describedby="simple-modal-description"
+            >
+              <SignUp />
+            </Modal>
+          </Grid>
         </Grid>
       </Toolbar>
     </AppBar>
-    // </div>
   );
 }
