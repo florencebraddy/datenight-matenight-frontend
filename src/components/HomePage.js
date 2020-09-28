@@ -78,7 +78,7 @@ const useStyles = makeStyles(theme => ({
   },
   infotext: {
     color: "white",
-    fontSize: "20px",
+    fontSize: "30px",
     alignContent: "center",
     margin: "10px",
     fontFamily: "Neucha"

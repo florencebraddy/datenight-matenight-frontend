@@ -68,7 +68,7 @@ export default function ConfirmSignUp({ signUp, setSignUp }) {
                 required
                 fullWidth
                 id="confirmationCode"
-                label="confirmationCode"
+                label="Confirmation Code"
                 name="confirmationCode"
                 autoComplete="confirmationCode"
                 value={signUp.confirmationCode}
