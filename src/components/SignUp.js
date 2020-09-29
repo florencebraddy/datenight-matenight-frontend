@@ -15,13 +15,11 @@ import { v4 as uuid } from "uuid";
 
 const useStyles = makeStyles(theme => ({
   paper: {
-    // marginTop: theme.spacing(8),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    position: "relative",
     width: 400,
-    backgroundColor: "gray",
+    backgroundColor: "#E8E8E8",
     border: "2px solid #000",
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
@@ -30,7 +28,7 @@ const useStyles = makeStyles(theme => ({
 
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: "black"
+    color: "black"
   },
   form: {
     width: "100%",

@@ -6,6 +6,7 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
+import PopoverSearch from "./PopoverSearch";
 
 const useStyles = makeStyles({
   container: {
@@ -25,7 +26,7 @@ const useStyles = makeStyles({
   }
 });
 
-export default function DateCards({ el }) {
+export default function DateCards({ dates, toggle, setToggle }) {
   const classes = useStyles();
 
   return (
@@ -34,19 +35,30 @@ export default function DateCards({ el }) {
         <CardActionArea>
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
-              {el.name}
+              {dates.name}
             </Typography>
             <Typography variant="body2" color="textSecondary">
-              {el.description}
+              {dates.description}
             </Typography>
             <Typography variant="body2" color="textSecondary">
-              {el.activity_location}
+              {dates.activity_location}
             </Typography>
             <Typography variant="body2" color="textSecondary">
-              {el.price}
+              {dates.price}
             </Typography>
           </CardContent>
         </CardActionArea>
+        <CardActions className={classes.popover}>
+          <PopoverSearch
+            className={classes.Popover}
+            toggle={toggle}
+            setToggle={setToggle}
+            dates={dates}
+            size="small"
+          >
+            Details
+          </PopoverSearch>
+        </CardActions>
       </Card>
     </Container>
   );

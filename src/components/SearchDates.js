@@ -4,6 +4,7 @@ import axios from "axios";
 import SearchDatesNav from "./SearchDatesNav";
 import DateCards from "./DateCards";
 import SearchForm from "./SearchForm";
+import Container from "@material-ui/core/Container";
 // import Popover from "./components/Popover";
 
 const backgroundImage =
@@ -48,27 +49,36 @@ function SearchDates() {
         `http://localhost:4000/search/activity?name=${query}&price=${query}&location=${query}`
       );
       setDates(response.data.message);
+      console.log(response.data.message);
     }
     getData();
   }, [toggle]);
   return (
-    <div className="search" backgroundColor="pink">
-      <SearchDatesNav
-        toggle={toggle}
-        setToggle={setToggle}
-        setQuery={setQuery}
-        position="relative"
-      />
-      {/* <SearchForm></SearchForm> */}
-      <div>
-        {dates &&
-          dates.map(el => (
-            <>
-              <DateCards key={el.name} el={el}></DateCards>
-            </>
-          ))}
+    <div>
+      <div
+        style={{ backgroundImage: `url("${backgroundImage}")` }}
+        margin="0 auto"
+        // padding="0"
+        // minHeight="100px"
+        // minheight="100px"
+      >
+        <SearchDatesNav
+          toggle={toggle}
+          setToggle={setToggle}
+          setQuery={setQuery}
+          position="relative"
+        />
+        {/* <SearchForm></SearchForm> */}
+        <div>
+          {dates &&
+            dates.map(dates => (
+              <>
+                <DateCards key={dates.name} dates={dates}></DateCards>
+              </>
+            ))}
+        </div>
+        <br />
       </div>
-      <br />
     </div>
   );
 }
