@@ -9,6 +9,8 @@ import Grid from "@material-ui/core/grid";
 import Modal from "@material-ui/core/Modal";
 import SignUp from "./SignUp";
 import LogIn from "./LogIn";
+import SearchIcon from "@material-ui/icons/Search";
+import { navigate } from "@reach/router";
 
 const useStyles = makeStyles(theme => ({
   main: {
@@ -31,6 +33,11 @@ function getModalStyle() {
     transform: `translate(-${top}%, -${left}%)`
   };
 }
+
+function searchNavigation() {
+  navigate("/search/activities");
+}
+
 export default function NavBar({ setSignedInUser }) {
   const classes = useStyles();
 
@@ -55,14 +62,14 @@ export default function NavBar({ setSignedInUser }) {
     <AppBar className={classes.main}>
       <Toolbar>
         <Grid justify="space-between" container spacing={30}>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="menu"
+          <Button
+            variant="contained"
+            className={classes.button}
+            startIcon={<SearchIcon />}
+            onClick={searchNavigation}
           >
-            <MenuIcon />
-          </IconButton>
+            Search Dates
+          </Button>
           <Grid>
             <Button
               classesName={classes.button}

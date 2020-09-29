@@ -27,7 +27,6 @@ export default function DateCards({ el }) {
             {el.name}
           </Typography>
           <Typography variant="body2" color="textSecondary">
-            THIS IS THE CARD
             {el.description}
           </Typography>
           <Typography variant="body2" color="textSecondary">
