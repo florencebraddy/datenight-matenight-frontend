@@ -24,23 +24,22 @@ function SearchDates() {
   }, [toggle]);
   return (
     <div className="search">
-      <header className="Search">
-        <SearchDatesNav
-          toggle={toggle}
-          setToggle={setToggle}
-          setQuery={setQuery}
-        />
-        <SearchForm></SearchForm>
-        <div>
-          {dates &&
-            dates.map(el => (
-              <>
-                <DateCards key={el.name} el={el}></DateCards>
-              </>
-            ))}
-        </div>
-        <br />
-      </header>
+      <SearchDatesNav
+        toggle={toggle}
+        setToggle={setToggle}
+        setQuery={setQuery}
+        position="relative"
+      />
+      <SearchForm></SearchForm>
+      <div>
+        {dates &&
+          dates.map(el => (
+            <>
+              <DateCards key={el.name} el={el}></DateCards>
+            </>
+          ))}
+      </div>
+      <br />
     </div>
   );
 }
