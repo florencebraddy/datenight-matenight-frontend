@@ -6,6 +6,37 @@ import DateCards from "./DateCards";
 import SearchForm from "./SearchForm";
 // import Popover from "./components/Popover";
 
+const backgroundImage =
+  "https://images.unsplash.com/photo-1597667159084-a3a21b68dd57?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1406&q=80";
+
+// const useStyles = makeStyles(theme => ({
+//   container: {
+//     backgroundImage: `url(${backgroundImage})`,
+//     position: "absolute",
+//     top: "0",
+//     left: "0",
+//     minWidth: "100%",
+//     minHeight: "100%",
+//     backgroundRepeat: "no-repeat",
+//     backgroundSize: "cover",
+//     opacity: "0.9"
+//   }
+// }));
+
+// function SearchDatesOnLoad() {
+//   const [load, setLoad] = userState([]);
+//   useEffect(() => {
+//     async function getData() {
+//       const response = await axios.get(
+//         `http://localhost:4000/search/activity?name=${query}&price=${query}&location=${query}`
+//       );
+//       console.log(response);
+//       setDates(response.data.message);
+//       // console.log(response.data);
+//     }
+//     getData();
+//   });
+
 function SearchDates() {
   const [dates, setDates] = useState([]);
   const [toggle, setToggle] = useState(true);
@@ -14,23 +45,21 @@ function SearchDates() {
   useEffect(() => {
     async function getData() {
       const response = await axios.get(
-        `http://localhost:4000/search/activity?name=${query}`
+        `http://localhost:4000/search/activity?name=${query}&price=${query}&location=${query}`
       );
-      console.log(response);
       setDates(response.data.message);
-      // console.log(response.data);
     }
     getData();
   }, [toggle]);
   return (
-    <div className="search">
+    <div className="search" backgroundColor="pink">
       <SearchDatesNav
         toggle={toggle}
         setToggle={setToggle}
         setQuery={setQuery}
         position="relative"
       />
-      <SearchForm></SearchForm>
+      {/* <SearchForm></SearchForm> */}
       <div>
         {dates &&
           dates.map(el => (

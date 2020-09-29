@@ -15,16 +15,17 @@ import { v4 as uuid } from "uuid";
 
 const useStyles = makeStyles(theme => ({
   paper: {
-    marginTop: theme.spacing(8),
+    // marginTop: theme.spacing(8),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    position: "absolute",
+    position: "relative",
     width: 400,
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: "gray",
     border: "2px solid #000",
     boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3)
+    padding: theme.spacing(2, 4, 3),
+    margin: "0 auto"
   },
 
   avatar: {
