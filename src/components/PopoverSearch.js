@@ -9,20 +9,25 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1,
-    flexDirection: "row"
+    flexGrow: "0.8",
+    display: "flex",
+    alignContent: "center",
+    margin: "10px",
+    padding: "10px",
+    justifyContent: "space-around"
   },
   typography: {
     padding: theme.spacing(3),
     textAlign: "center",
-    fontFamily: "Julius Sans One"
+    fontFamily: "Julius Sans One",
+    fontWeight: "bold"
   },
   learnmore: {
     backgroundColor: "#69bdd2",
     fontFamily: "Julius Sans One"
   },
   book: {
-    flexGrow: 10
+    // flexGrow: 10
   }
 }));
 

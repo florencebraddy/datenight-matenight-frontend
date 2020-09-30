@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
     top: "0",
     left: "0",
     minWidth: "100%",
-    minHeight: "100%",
+    minHeight: "100vh",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover"
   },
