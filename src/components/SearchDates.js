@@ -3,7 +3,7 @@ import axios from "axios";
 import SearchDatesNav from "./SearchDatesNav";
 import DateCards from "./DateCards";
 import SearchForm from "./SearchForm";
-import Container from "@material-ui/core/Container";
+import Grid from "@material-ui/core/Grid";
 
 const backgroundImage =
   "https://images.unsplash.com/photo-1597667159084-a3a21b68dd57?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1406&q=80";
@@ -25,7 +25,7 @@ const backgroundImage =
 function SearchDates() {
   const [dates, setDates] = useState([]);
   const [toggle, setToggle] = useState(true);
-  const [query, setQuery] = useState(["$30"]);
+  const [query, setQuery] = useState([]);
 
   useEffect(() => {
     async function getData() {
@@ -39,10 +39,12 @@ function SearchDates() {
   }, [toggle]);
   return (
     <div
-      style={{ background: `url("${backgroundImage}")` }}
-      backgroundImage="no repeat"
-      width="100vw"
-      height="100px"
+      style={{
+        backgroundImage: `url("${backgroundImage}")`,
+        minHeight: "100vh",
+        backgroundRepeat: "no-repeat, center center",
+        backgroundSize: "cover"
+      }}
     >
       <SearchDatesNav
         toggle={toggle}

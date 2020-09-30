@@ -74,9 +74,6 @@ export default function DateCards({ dates, toggle, setToggle }) {
             >
               {dates.activity_location}
             </Typography>
-            {/* <Typography variant="body2" color="textSecondary">
-              {dates.price}
-            </Typography> */}
           </CardContent>
         </CardActionArea>
         <CardActions className={classes.popover}>
