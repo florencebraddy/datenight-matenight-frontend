@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-// import { Button, Input } from "@material-ui/core";
 import SearchDatesNav from "./SearchDatesNav";
 import DateCards from "./DateCards";
 import SearchForm from "./SearchForm";
 import Container from "@material-ui/core/Container";
-// import Popover from "./components/Popover";
 
 const backgroundImage =
   "https://images.unsplash.com/photo-1597667159084-a3a21b68dd57?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1406&q=80";
@@ -24,24 +22,10 @@ const backgroundImage =
 //   }
 // }));
 
-// function SearchDatesOnLoad() {
-//   const [load, setLoad] = userState([]);
-//   useEffect(() => {
-//     async function getData() {
-//       const response = await axios.get(
-//         `http://localhost:4000/search/activity?name=${query}&price=${query}&location=${query}`
-//       );
-//       console.log(response);
-//       setDates(response.data.message);
-//       // console.log(response.data);
-//     }
-//     getData();
-//   });
-
 function SearchDates() {
   const [dates, setDates] = useState([]);
   const [toggle, setToggle] = useState(true);
-  const [query, setQuery] = useState([]);
+  const [query, setQuery] = useState(["$30"]);
 
   useEffect(() => {
     async function getData() {

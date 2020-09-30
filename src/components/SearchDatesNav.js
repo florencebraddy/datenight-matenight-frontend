@@ -3,31 +3,44 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import Container from "@material-ui/core/Container";
+// import Container from "@material-ui/core/Container";
 import { Input, makeStyles } from "@material-ui/core";
 import { navigate } from "@reach/router";
 import HomeIcon from "@material-ui/icons/Home";
 
 const useStyles = makeStyles(theme => ({
-  container: {
-    display: "flex",
-    justifyContent: "space-evenly",
-    flexDirection: "row"
+  root: {
+    flexGrow: 1
+  },
+  input: {
+    backgroundColor: "white",
+    padding: "0.2px",
+    width: "200px",
+    height: "30px",
+    borderRadius: "10px",
+    border: "2px solid #FFFFFF",
+    outline: "none"
+  },
+  search: {
+    color: "white"
   },
   nav: {
     backgroundColor: "transparent",
     color: "black"
   },
   button: {
-    display: "flex-start",
     color: "white"
   },
   title: {
-    fontSize: "35px",
-    fontFamily: "Neucha",
-    color: "white"
+    fontSize: "50px",
+    fontFamily: "Julius Sans One",
+    fontWeight: "bold",
+    color: "#69bdd2",
+    flexGrow: 0.6,
+    padding: "20px"
   }
 }));
+
 function returnHome() {
   navigate("/");
 }
@@ -36,23 +49,26 @@ const SearchDatesNav = ({ toggle, setToggle, setQuery }) => {
   const classes = useStyles();
 
   return (
-    <AppBar position="static" className={classes.nav}>
-      <Toolbar>
-        <Container className={classes.container}>
+    <div className={classes.root}>
+      <AppBar position="static" className={classes.nav}>
+        <Toolbar>
           <Button
             className={classes.button}
             startIcon={<HomeIcon />}
-            position="relative"
             onClick={returnHome}
           >
             Home
           </Button>
-          <Input onChange={event => setQuery(event.target.value)}></Input>
           <Button
+            className={classes.search}
             onClick={() => setToggle(!toggle)}
             color="inherit"
             fontFamily="Neucha"
           >
+            <Input
+              className={classes.input}
+              onChange={event => setQuery(event.target.value)}
+            ></Input>
             Search
           </Button>
           <Typography
@@ -63,9 +79,9 @@ const SearchDatesNav = ({ toggle, setToggle, setQuery }) => {
           >
             Search for the perfect date
           </Typography>
-        </Container>
-      </Toolbar>
-    </AppBar>
+        </Toolbar>
+      </AppBar>
+    </div>
   );
 };
 

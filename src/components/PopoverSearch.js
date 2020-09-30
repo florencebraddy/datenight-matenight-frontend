@@ -8,9 +8,21 @@ import Rating from "@material-ui/lab/Rating";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 
 const useStyles = makeStyles(theme => ({
+  root: {
+    flexGrow: 1,
+    flexDirection: "row"
+  },
   typography: {
     padding: theme.spacing(3),
-    textAlign: "center"
+    textAlign: "center",
+    fontFamily: "Julius Sans One"
+  },
+  learnmore: {
+    backgroundColor: "#69bdd2",
+    fontFamily: "Julius Sans One"
+  },
+  book: {
+    flexGrow: 10
   }
 }));
 
@@ -40,14 +52,22 @@ export default function PopoverSearch({ dates, toggle, setToggle }) {
   })(Rating);
 
   return (
-    <div>
+    <div className={classes.root}>
       <Button
+        className={classes.learnmore}
         aria-describedby={id}
         variant="contained"
-        // color="primary"
         onClick={handleClick}
       >
-        Learn More
+        <b>Learn More</b>
+      </Button>
+      <Button
+        className={classes.learnmore}
+        // aria-describedby={id}
+        variant="contained"
+        // onClick={handleClick}
+      >
+        <b>Book Now!</b>
       </Button>
       <Popover
         id={id}
@@ -65,10 +85,13 @@ export default function PopoverSearch({ dates, toggle, setToggle }) {
       >
         <Typography className={classes.typography}>
           <b>Category:</b>
+          <br />
           {dates.category}
           <br />
           <br />
-          <b>Rating:</b>
+          <b>Rating: </b>
+          <br />
+
           <StyledRating
             name="customized-color"
             defaultValue={5}
@@ -78,7 +101,9 @@ export default function PopoverSearch({ dates, toggle, setToggle }) {
           />
           <br />
           <br />
-          <b>Price:</b>
+          <b>Price: </b>
+          <br />
+
           {dates.price}
         </Typography>
       </Popover>

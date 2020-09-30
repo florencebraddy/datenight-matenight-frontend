@@ -58,16 +58,16 @@ const useStyles = makeStyles(theme => ({
     fontFamily: "Special Elite"
   },
   infotitle: {
-    fontSize: "40px",
+    fontSize: "35px",
     margin: "10px",
-    fontFamily: "Neucha"
+    fontFamily: "Julius Sans One"
   },
   infotext: {
     color: "white",
-    fontSize: "30px",
+    fontSize: "25px",
     alignContent: "center",
     margin: "10px",
-    fontFamily: "Neucha"
+    fontFamily: "Julius Sans One"
   }
 }));
 
@@ -95,13 +95,16 @@ export default function HomePage({ setSignedInUser }) {
               noWrap={true}
             >
               {"Are you and your spouse wondering what to do this weekend?"}
+
               <br />
               {
                 "Do you and your friends keep talking about getting together to hang?"
               }
               <br />
+
               {"Can't figure out what to do?"}
               <br />
+
               {
                 "Well...you're in the right spot. We help you decide on the perfect date for you and your loved ones!"
               }

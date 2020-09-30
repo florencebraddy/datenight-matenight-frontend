@@ -10,7 +10,8 @@ import PopoverSearch from "./PopoverSearch";
 
 const useStyles = makeStyles({
   container: {
-    display: "flex"
+    display: "flex",
+    fontFamily: "Julius Sans One"
   },
   root: {
     maxWidth: "50%",
@@ -18,11 +19,28 @@ const useStyles = makeStyles({
     margin: "1rem auto",
     textAlign: "center",
     borderRadius: "25px",
-    justifyContent: "center"
+    justifyContent: "center",
+    fontFamily: "Julius Sans One"
+  },
+  title: {
+    fontFamily: "Julius Sans One",
+    fontWeight: "bold",
+    fontSize: "40px",
+    color: "#69bdd2"
+  },
+  text: {
+    fontFamily: "Julius Sans One",
+    color: "black",
+    fontSize: "20px"
   },
   media: {
     height: 100,
     width: 100
+  },
+  location: {
+    fontFamily: "Julius Sans One",
+    fontSize: "15px",
+    fontWeight: "bold"
   }
 });
 
@@ -33,19 +51,32 @@ export default function DateCards({ dates, toggle, setToggle }) {
     <Container className={classes.container}>
       <Card className={classes.root}>
         <CardActionArea>
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
+          <CardContent className={classes.content}>
+            <Typography
+              className={classes.title}
+              gutterBottom
+              variant="h5"
+              component="h2"
+            >
               {dates.name}
             </Typography>
-            <Typography variant="body2" color="textSecondary">
+            <Typography
+              className={classes.text}
+              variant="body2"
+              color="textSecondary"
+            >
               {dates.description}
             </Typography>
-            <Typography variant="body2" color="textSecondary">
+            <Typography
+              className={classes.location}
+              variant="body2"
+              color="textSecondary"
+            >
               {dates.activity_location}
             </Typography>
-            <Typography variant="body2" color="textSecondary">
+            {/* <Typography variant="body2" color="textSecondary">
               {dates.price}
-            </Typography>
+            </Typography> */}
           </CardContent>
         </CardActionArea>
         <CardActions className={classes.popover}>
@@ -55,9 +86,7 @@ export default function DateCards({ dates, toggle, setToggle }) {
             setToggle={setToggle}
             dates={dates}
             size="small"
-          >
-            Details
-          </PopoverSearch>
+          ></PopoverSearch>
         </CardActions>
       </Card>
     </Container>
