@@ -16,6 +16,9 @@ const useStyles = makeStyles(theme => ({
   main: {
     backgroundColor: "transparent",
     color: "black"
+  },
+  button: {
+    backgroundColor: "transparent"
   }
 }));
 

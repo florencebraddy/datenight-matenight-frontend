@@ -3,7 +3,7 @@ import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Popover from "@material-ui/core/Popover";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import { textAlign } from "@material-ui/system";
+// import { textAlign } from "@material-ui/system";
 import Rating from "@material-ui/lab/Rating";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 
@@ -44,7 +44,7 @@ export default function PopoverSearch({ dates, toggle, setToggle }) {
       <Button
         aria-describedby={id}
         variant="contained"
-        color="primary"
+        // color="primary"
         onClick={handleClick}
       >
         Learn More
@@ -64,8 +64,8 @@ export default function PopoverSearch({ dates, toggle, setToggle }) {
         }}
       >
         <Typography className={classes.typography}>
-          {/* <b>Category:</b>
-          {date.category} */}
+          <b>Category:</b>
+          {dates.category}
           <br />
           <br />
           <b>Rating:</b>

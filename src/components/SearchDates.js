@@ -46,7 +46,7 @@ function SearchDates() {
   useEffect(() => {
     async function getData() {
       const response = await axios.get(
-        `http://localhost:4000/search/activity?name=${query}&price=${query}&location=${query}`
+        `http://localhost:4000/search/activity?name=${query}&price=${query}&location=${query}&category=${query}`
       );
       setDates(response.data.message);
       console.log(response.data.message);
@@ -54,31 +54,28 @@ function SearchDates() {
     getData();
   }, [toggle]);
   return (
-    <div>
-      <div
-        style={{ backgroundImage: `url("${backgroundImage}")` }}
-        margin="0 auto"
-        // padding="0"
-        // minHeight="100px"
-        // minheight="100px"
-      >
-        <SearchDatesNav
-          toggle={toggle}
-          setToggle={setToggle}
-          setQuery={setQuery}
-          position="relative"
-        />
-        {/* <SearchForm></SearchForm> */}
-        <div>
-          {dates &&
-            dates.map(dates => (
-              <>
-                <DateCards key={dates.name} dates={dates}></DateCards>
-              </>
-            ))}
-        </div>
-        <br />
+    <div
+      style={{ background: `url("${backgroundImage}")` }}
+      backgroundImage="no repeat"
+      width="100vw"
+      height="100px"
+    >
+      <SearchDatesNav
+        toggle={toggle}
+        setToggle={setToggle}
+        setQuery={setQuery}
+        position="relative"
+      />
+      {/* <SearchForm></SearchForm> */}
+      <div>
+        {dates &&
+          dates.map(dates => (
+            <>
+              <DateCards key={dates.name} dates={dates}></DateCards>
+            </>
+          ))}
       </div>
+      <br />
     </div>
   );
 }

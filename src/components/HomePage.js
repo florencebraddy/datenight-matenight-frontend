@@ -3,7 +3,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
-import Button from "./Button";
 import MiddleSection from "./MiddleSection";
 import NavBar from "./NavBar";
 import Card from "@material-ui/core/Card";
@@ -38,19 +37,6 @@ const useStyles = makeStyles(theme => ({
   },
   navbar: {
     position: "fixed"
-  },
-  button: {
-    position: "relative",
-    display: "flex",
-    height: "50px",
-    opacity: "0.9"
-  },
-  buttoncard: {
-    display: "flex",
-    justifyContent: "center",
-    background: "transparent",
-    border: "none",
-    boxShadow: "none"
   },
   typography: {
     color: "black",
@@ -121,15 +107,8 @@ export default function HomePage({ setSignedInUser }) {
               }
             </Typography>
           </Card>
-          {/* <Card className={classes.buttoncard}>
-            <Button className={classes.button}>Search Dates</Button>
-          </Card> */}
         </Grid>
       </Grid>
-      {/* <Grid className={classes.middlesection} item xs> */}
-      {/* <MiddleSection></MiddleSection> */}
-      {/* </Grid> */}
-      {/* </Grid> */}
     </div>
   );
 }

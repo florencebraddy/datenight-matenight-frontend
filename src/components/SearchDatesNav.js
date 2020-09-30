@@ -5,6 +5,8 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Container from "@material-ui/core/Container";
 import { Input, makeStyles } from "@material-ui/core";
+import { navigate } from "@reach/router";
+import HomeIcon from "@material-ui/icons/Home";
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -13,14 +15,23 @@ const useStyles = makeStyles(theme => ({
     flexDirection: "row"
   },
   nav: {
-    backgroundColor: "#D3CFCE",
+    backgroundColor: "transparent",
     color: "black"
+  },
+  button: {
+    display: "flex-start",
+    color: "white"
   },
   title: {
     fontSize: "35px",
-    fontFamily: "Neucha"
+    fontFamily: "Neucha",
+    color: "white"
   }
 }));
+function returnHome() {
+  navigate("/");
+}
+
 const SearchDatesNav = ({ toggle, setToggle, setQuery }) => {
   const classes = useStyles();
 
@@ -28,6 +39,14 @@ const SearchDatesNav = ({ toggle, setToggle, setQuery }) => {
     <AppBar position="static" className={classes.nav}>
       <Toolbar>
         <Container className={classes.container}>
+          <Button
+            className={classes.button}
+            startIcon={<HomeIcon />}
+            position="relative"
+            onClick={returnHome}
+          >
+            Home
+          </Button>
           <Input onChange={event => setQuery(event.target.value)}></Input>
           <Button
             onClick={() => setToggle(!toggle)}

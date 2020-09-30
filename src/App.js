@@ -16,11 +16,6 @@ function App() {
       <div className="App">
         <header className="App-header">
           <PublicRoutes signedInUser={signedInUser}></PublicRoutes>
-          {/* <Router>
-            <HomePage path="/" setSignedInUser={setSignedInUser}></HomePage>
-            <Profile path="/profile"></Profile>
-            <SearchDates path="/search"></SearchDates>
-          </Router>  */}
         </header>
       </div>
     );
